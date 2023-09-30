@@ -1,0 +1,12 @@
+-- programmers sql
+-- print the list of reviews from members who have written the most reviews
+
+SELECT PROFILE.MEMBER_NAME, REVIEW.REVIEW_TEXT, DATE_FORMAT(REVIEW_DATE, '%Y-%m-%d') AS REVIEW_DATE
+FROM MEMBER_PROFILE AS PROFILE, REST_REVIEW AS REVIEW
+WHERE PROFILE.MEMBER_ID = REVIEW.MEMBER_ID
+AND PROFILE.MEMBER_ID = (SELECT REVIEW.REVIEW_ID
+                         FROM REST_REVIEW AS REVIEW
+                        GROUP BY REVIEW.MEMBER_ID
+                        ORDER BY COUNT(MEMBER_ID) DESC
+                        LIMIT 1)
+ORDER BY REVIEW_DATE, REVIEW_TEXT
