@@ -16,3 +16,9 @@ WHERE ((CAR.DAILY_FEE * 30) * (100 - DIS.DISCOUNT_RATE)/100) BETWEEN 500000 AND 
 AND HIS.CAR_ID IS NULL
 
 ORDER BY FEE DESC, CAR.CAR_TYPE, CAR.CAR_ID DESC
+
+-- first use INNER JOIN with DIS to find discount rate
+-- use AND after JOIN/ON to limit the range of the data (based on duration type AND car type)
+-- then use LEFT OUTER JOIN with HIS to combine the rental history for each cars
+-- set the range of HIS.END_DATE AND HIS.START_DATE that span the rental period (11/1~11/30)
+-- if the data is not in the range, it will be NULL because of LEFT OUTER JOIN
