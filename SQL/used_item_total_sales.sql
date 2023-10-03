@@ -1,5 +1,5 @@
 -- programmers sql
--- find the list of sales by author, and category
+-- find the total sales of used item trade 
 
 SELECT USER_ID, NICKNAME, SUM(PRICE) AS TOTAL_SALES
 FROM USED_GOODS_BOARD AS B
