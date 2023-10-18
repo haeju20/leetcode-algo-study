@@ -1,4 +1,4 @@
-# backjoon 20413
+# baekjoon 20413
 # MVP 다이아몬드 (Easy)
 
 def solution(N, mvp, history):
