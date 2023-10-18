@@ -1,4 +1,4 @@
-# backjoon 15649
+# baekjoon 15649
 # N과 M (1)
 
 N, M = list(map(int, input().split()))
