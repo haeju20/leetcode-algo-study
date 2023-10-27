@@ -1,42 +1,31 @@
 # baekjoon 12101
 # 1, 2, 3 더하기 2
 
-import sys
-sys.setrecursionlimit(10**7)
-
 n, k = map(int, input().split())
 p = []
 num = []
 
-def solution(num):
-    global p
+def solution(depth): # depth is the number of 1, 2, 3
+    global p, num
 
-    if sum(num) == n:
-        print(num, sum(num))
-        if num not in p:
+    if depth == 0: 
+        if sum(num) == n:
             p.append(num)
         return
-    
-    for i in range(1, 4): # 1, 2, 3
-        print('in for [', i, ']: ', num)
-        if sum(num) < n:
+
+    for i in range(1, 4): # using 1, 2, 3 
+        if sum(num) <= n:
             num.append(i)
-            solution(num)
-            if len(num) > 2:
-                num = num[:-2]
-            else: return
+            solution(depth-1)
+            num = num[:-1]
         
-for i in range(1, 4):
-    num.append(i)
-    solution(num)
-    num = []
+for i in range(n): 
+    solution(i+1)
     
 p = sorted(p)
 
 if len(p) >= k-1:
-    print(p[k-1])
+    result = list(map(str, p[k-1]))
+    print('+'.join(result))
 else:    
     print(-1)
-    
-    
-    
