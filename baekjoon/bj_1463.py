@@ -4,7 +4,7 @@
 import collections
 
 X = int(input())
-dp = collections.defaultdict(int) # 0으로 초기화
+dp = collections.defaultdict(int)
 
 for num in range(2, X+1): # dp[1] = 0
     dp[num] = dp[num-1] + 1 # 3. 1을 뺀다
