@@ -12,6 +12,7 @@ for _ in range(T):
             # initialize the value if 1st col
             if i == 1:
                 score[j][i] += score[1-j][i-1] 
+                continue
                 
             # max value so far including current value 
             score[j][i] += max(score[1-j][i-1], score[1-j][i-2])
