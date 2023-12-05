@@ -1,7 +1,7 @@
 # baekjoon 1987
 # 알파벳
 
-# PyPy3에서는 성공하지만 Python3에서는 시간 초과
+# 시간 초과
 R, C = map(int, input().split())
 board = [ list(input()) for _ in range(R) ]
 
