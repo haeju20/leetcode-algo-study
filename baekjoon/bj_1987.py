@@ -18,7 +18,8 @@ def solution(x, y, cnt):
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        
+
+        # python 'not in' -> time complexity
         if 0 <= nx < R and 0 <= ny < C and board[nx][ny] not in char:
             char.add(board[nx][ny])
             solution(nx, ny, cnt+1)
