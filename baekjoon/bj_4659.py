@@ -1,7 +1,6 @@
 # baekjoon 4659
 # 비밀번호 발음하기
 
-# wrong answer
 vowel = ['a', 'e', 'i', 'o', 'u']
 
 
@@ -31,7 +30,7 @@ def check2(word):
 def check3(word):
     # if there are continuous same alphabets except for ee and oo
     for i in range(1, len(word)):
-        if word[i] == word[i - 1] and word[i] != ('e' or 'o'):
+        if word[i] == word[i - 1] and word[i] not in ('e', 'o'):
             return False
     return True
 
